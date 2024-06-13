@@ -17,6 +17,7 @@ private:
     int m_gameFieldSizeWidth;
     int m_gameFieldSizeHeight;
     int m_snakeSpeed;
+    int m_snakeFoodCounter;
     unsigned short int m_score;
     bool m_moveStop;
     bool m_gameOver;

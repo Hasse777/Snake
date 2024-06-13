@@ -94,7 +94,7 @@ void GameField::NewGame()
 {
     m_gameOver = false;
     m_pause = false;
-
+    m_snakeFoodCounter = 0;
     // Обнуление набранных очков
     m_score = 0;
     m_text = "Очки : " + QString::number(m_score) + "\nПауза - ПРОБЕЛ";
@@ -139,6 +139,8 @@ void GameField::ChangeXY_Food()
             return GameField::ChangeXY_Food();
         }
     }
+    if(m_snakeSpeed > 30 && ++m_snakeFoodCounter % 4 == 0) {m_snakeSpeed-=2 ; m_Timer->start(m_snakeSpeed);}
+    qDebug() << m_snakeSpeed;
 }
 
 bool GameField::BoundaryChecking(QPair<int, int> object_1, QPair<int, int> object_2)
